@@ -1,5 +1,5 @@
 # ColloquiumSlides
-
+In deze repository staat de sourcecode van de slides die met gebruik van manim worden gemaakt voor de presentaties voor het vak AM3000 Bachelorcolloquium door Sander Dietz, 2023/2024 Q3.
 
 # Manim environment
 Installeer het anaconda environment van de `environment.yml`.
