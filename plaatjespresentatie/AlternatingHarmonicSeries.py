@@ -231,39 +231,29 @@ class Slide12(Scene):
 class Slide13(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        rect1 = Rectangle(width=1.0, height=4.0, stroke_color=WHITE).shift(LEFT * 1.5)
-        rect2 = Rectangle(width=1.0, height=3.2, stroke_color=WHITE).shift(LEFT * .5).shift(DOWN * .4)
-        rect3 = Rectangle(width=1.0, height=2.67, stroke_color=WHITE).shift(RIGHT * .5).shift(DOWN * .67)
-        rect4 = Rectangle(width=1.0, height=2.29, stroke_color=WHITE).shift(RIGHT * 1.5).shift(DOWN * .86)
-        text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}", color=WHITE).to_edge(UL)
 
-        self.add(rect1)
-        self.add(rect2)
-        self.add(rect3)
-        self.add(rect4)
+        for i in range(4):
+            height = 4.0 * 4 / (4 + i)
+            rect = Rectangle(width=1.0, height=height)
+            rect.shift(LEFT * (1.5 - i))
+            rect.shift(DOWN * (.5 * (4 - height)))
+            self.add(rect)
+
+        text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}", color=WHITE).to_edge(UL)
         self.add(text)
 
 class Slide14(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        rect1 = Rectangle(width=.5, height=4.0, stroke_color=WHITE).shift(LEFT * 1.75) # 1
-        rect2 = Rectangle(width=.5, height=3.56, stroke_color=WHITE).shift(LEFT * 1.25).shift(DOWN * .22) # 8/9
-        rect3 = Rectangle(width=.5, height=3.2, stroke_color=WHITE).shift(LEFT * .75).shift(DOWN * .4) # 8/10
-        rect4 = Rectangle(width=.5, height=2.91, stroke_color=WHITE).shift(LEFT * .25).shift(DOWN * .55) # 8/11
-        rect5 = Rectangle(width=.5, height=2.67, stroke_color=WHITE).shift(RIGHT * .25).shift(DOWN * .67) # 8/12
-        rect6 = Rectangle(width=.5, height=2.46, stroke_color=WHITE).shift(RIGHT * .75).shift(DOWN * .77) # 8/13
-        rect7 = Rectangle(width=.5, height=2.29, stroke_color=WHITE).shift(RIGHT * 1.25).shift(DOWN * .86) # 8/14
-        rect8 = Rectangle(width=.5, height=2.13, stroke_color=WHITE).shift(RIGHT * 1.75).shift(DOWN * .93) # 8/15
-        text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-...+\frac{1}{15}", color=WHITE).scale(.8).to_edge(UL)
 
-        self.add(rect1)
-        self.add(rect2)
-        self.add(rect3)
-        self.add(rect4)
-        self.add(rect5)
-        self.add(rect6)
-        self.add(rect7)
-        self.add(rect8)
+        for i in range(8):
+            height = 4.0 * 8 / (8 + i)
+            rect = Rectangle(width=.5, height=height)
+            rect.shift(LEFT * (1.75 - i * .5))
+            rect.shift(DOWN * (.5 * (4 - height)))
+            self.add(rect)
+
+        text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-...+\frac{1}{15}", color=WHITE).to_edge(UL)
         self.add(text)
 
 class Slide15(Scene):
