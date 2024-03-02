@@ -1,5 +1,5 @@
 # Render all images in high quality (1080x1920) using the following command:
-# manim -qh AlternatingHarmonicSeries.py PartialSum1 PartialSum2 PartialSum2Intermediate PartialSum3 PartialSum3Intermediate PartialSum4 PartialSum4Intermediate PartialSum5 PartialSum5Intermediate PartialSum6 PartialSum6Intermediate PartialSum7 PartialSum7Intermediate PartialSum15Intermediate PartialSum31Intermediate Limit1 Limit2
+# manim -qh AlternatingHarmonicSeries.py Slide01 Slide02 Slide03 Slide04 Slide05 Slide06 Slide07 Slide08 Slide09 Slide10 Slide11 Slide12 Slide13 Slide14 Slide15 Slide16 Slide17
 
 from manim import *
 
@@ -7,7 +7,7 @@ BACKGROUND = "#031b2e"
 PRIMARY = "#e1d2c5"
 SECONDARY = "#f0a563"
 
-class PartialSum1(Scene):
+class Slide01(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect_new = Rectangle(width=4.0, height=4.0, stroke_color=WHITE)
@@ -26,7 +26,7 @@ class PartialSum1(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum2(Scene):
+class Slide02(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=2.0, height=4.0, color=GRAY).shift(LEFT)
@@ -48,7 +48,7 @@ class PartialSum2(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum2Intermediate(Scene):
+class Slide03(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=2.0, height=4.0, stroke_color=WHITE).shift(LEFT)
@@ -57,7 +57,7 @@ class PartialSum2Intermediate(Scene):
         self.add(rect1)        
         self.add(text)
 
-class PartialSum3(Scene):
+class Slide04(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=2.0, height=4.0, color=GRAY).shift(LEFT)
@@ -79,7 +79,7 @@ class PartialSum3(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum3Intermediate(Scene):
+class Slide05(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=2.0, height=4.0, stroke_color=WHITE).shift(LEFT)
@@ -90,7 +90,7 @@ class PartialSum3Intermediate(Scene):
         self.add(rect2)
         self.add(text)
 
-class PartialSum4(Scene):
+class Slide06(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, color=GRAY).shift(LEFT * 1.5)
@@ -114,7 +114,7 @@ class PartialSum4(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum4Intermediate(Scene):
+class Slide07(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, stroke_color=WHITE).shift(LEFT * 1.5)
@@ -126,7 +126,7 @@ class PartialSum4Intermediate(Scene):
         self.add(rect2)
         self.add(text)
 
-class PartialSum5(Scene):
+class Slide08(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, color=GRAY).shift(LEFT * 1.5)
@@ -150,7 +150,7 @@ class PartialSum5(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum5Intermediate(Scene):
+class Slide09(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, stroke_color=WHITE).shift(LEFT * 1.5)
@@ -163,7 +163,7 @@ class PartialSum5Intermediate(Scene):
         self.add(rect3)
         self.add(text)
 
-class PartialSum6(Scene):
+class Slide10(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, color=GRAY).shift(LEFT * 1.5)
@@ -189,7 +189,7 @@ class PartialSum6(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum6Intermediate(Scene):
+class Slide11(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, stroke_color=WHITE).shift(LEFT * 1.5)
@@ -202,7 +202,7 @@ class PartialSum6Intermediate(Scene):
         self.add(rect3)
         self.add(text)
 
-class PartialSum7(Scene):
+class Slide12(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, color=GRAY).shift(LEFT * 1.5)
@@ -228,7 +228,7 @@ class PartialSum7(Scene):
         self.add(text)
         self.add(box_text)
 
-class PartialSum7Intermediate(Scene):
+class Slide13(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=1.0, height=4.0, stroke_color=WHITE).shift(LEFT * 1.5)
@@ -243,7 +243,7 @@ class PartialSum7Intermediate(Scene):
         self.add(rect4)
         self.add(text)
 
-class PartialSum15Intermediate(Scene):
+class Slide14(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=.5, height=4.0, stroke_color=WHITE).shift(LEFT * 1.75) # 1
@@ -266,46 +266,21 @@ class PartialSum15Intermediate(Scene):
         self.add(rect8)
         self.add(text)
 
-class PartialSum31Intermediate(Scene):
+class Slide15(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        rect1 = Rectangle(width=.25, height=4.0, stroke_color=WHITE).shift(LEFT * 1.875) # 1
-        rect2 = Rectangle(width=.25, height=3.76, stroke_color=WHITE).shift(LEFT * 1.625).shift(DOWN * .12) # 16/17
-        rect3 = Rectangle(width=.25, height=3.56, stroke_color=WHITE).shift(LEFT * 1.375).shift(DOWN * .22) # 16/18
-        rect4 = Rectangle(width=.25, height=3.37, stroke_color=WHITE).shift(LEFT * 1.125).shift(DOWN * .32) # 16/19
-        rect5 = Rectangle(width=.25, height=3.2, stroke_color=WHITE).shift(LEFT * .875).shift(DOWN * .4) # 16/20
-        rect6 = Rectangle(width=.25, height=3.05, stroke_color=WHITE).shift(LEFT * .625).shift(DOWN * .48) # 16/21
-        rect7 = Rectangle(width=.25, height=2.91, stroke_color=WHITE).shift(LEFT * .375).shift(DOWN * .55) # 16/22
-        rect8 = Rectangle(width=.25, height=2.78, stroke_color=WHITE).shift(LEFT * .125).shift(DOWN * .61) # 16/23
-        rect9 = Rectangle(width=.25, height=2.67, stroke_color=WHITE).shift(RIGHT * .125).shift(DOWN * .67) # 16/24
-        rect10 = Rectangle(width=.25, height=2.56, stroke_color=WHITE).shift(RIGHT * .375).shift(DOWN * .72) # 16/25
-        rect11 = Rectangle(width=.25, height=2.46, stroke_color=WHITE).shift(RIGHT * .625).shift(DOWN * .77) # 16/26
-        rect12 = Rectangle(width=.25, height=2.37, stroke_color=WHITE).shift(RIGHT * .875).shift(DOWN * .81) # 16/27
-        rect13 = Rectangle(width=.25, height=2.29, stroke_color=WHITE).shift(RIGHT * 1.125).shift(DOWN * .86) # 16/28
-        rect14 = Rectangle(width=.25, height=2.21, stroke_color=WHITE).shift(RIGHT * 1.375).shift(DOWN * .90) # 16/29
-        rect15 = Rectangle(width=.25, height=2.13, stroke_color=WHITE).shift(RIGHT * 1.625).shift(DOWN * .93) # 16/30
-        rect16 = Rectangle(width=.25, height=2.06, stroke_color=WHITE).shift(RIGHT * 1.875).shift(DOWN * .97) # 16/31
-        text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-...+\frac{1}{31}", color=WHITE).to_edge(UL)
 
-        self.add(rect1)
-        self.add(rect2)
-        self.add(rect3)
-        self.add(rect4)
-        self.add(rect5)
-        self.add(rect6)
-        self.add(rect7)
-        self.add(rect8)
-        self.add(rect9)
-        self.add(rect10)
-        self.add(rect11)
-        self.add(rect12)
-        self.add(rect13)
-        self.add(rect14)
-        self.add(rect15)
-        self.add(rect16)
+        for i in range(16):
+            height = 4.0 * 16 / (16 + i)
+            rect = Rectangle(width=.25, height=height)
+            rect.shift(LEFT * (1.875 - i * .25))
+            rect.shift(DOWN * (.5 * (4 - height)))
+            self.add(rect)
+
+        text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-...+\frac{1}{31}", color=WHITE).to_edge(UL)
         self.add(text)
 
-class Limit1(Scene):
+class Slide16(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         grid = Axes(
@@ -327,7 +302,7 @@ class Limit1(Scene):
         text = MathTex(r"1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}-...", color=WHITE).to_edge(UL)
         self.add(grid, graph, area, text)
 
-class Limit2(Scene):
+class Slide17(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         grid = Axes(

@@ -1,5 +1,5 @@
 # Render all images in high quality (1080x1920) using the following command:
-# manim -qh PSeries.py Thumbnail Slide1 Slide2 Slide3
+# manim -qh PSeries.py Slide00 Slide01 Slide02 Slide03
 
 
 from manim import *
@@ -8,7 +8,7 @@ BACKGROUND = "#031b2d"
 PRIMARY = "#f0a563"
 SECONDARY = "#e1d2c5"
 
-class Thumbnail(Scene):
+class Slide00(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -27,7 +27,7 @@ class Thumbnail(Scene):
             self.add(rect)
         self.add(graph)
 
-class Slide1(Scene):
+class Slide01(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -43,7 +43,7 @@ class Slide1(Scene):
             text = MathTex(r"\frac{1}{{" + str(i) + r"}^p}").move_to(rect).shift(UP * UNITY * .5 * (1 / (i * i))).shift(UP * .75)
             self.add(rect, text)
 
-class Slide2(Scene):
+class Slide02(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -65,7 +65,7 @@ class Slide2(Scene):
         function = MathTex(r"y=\frac{1}{x^p}", color=SECONDARY).scale(.75).shift(LEFT * 4.25 + UP)
         self.add(function)
 
-class Slide3(Scene):
+class Slide03(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 

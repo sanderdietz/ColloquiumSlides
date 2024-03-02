@@ -1,5 +1,5 @@
 # Render all images in high quality (1080x1920) using the following command:
-# manim -qh HarmonicSeries.py Slide1 Slide2 Slide3 Slide4 Slide5 Slide6 Slide7 Slide8 Slide9 Slide10 Slide11
+# manim -qh HarmonicSeries.py Slide00 Slide01 Slide02 Slide03 Slide04 Slide05 Slide06 Slide07 Slide08 Slide09 Slide10 Slide11
 
 
 from manim import *
@@ -8,7 +8,7 @@ BACKGROUND = "#031b2d"
 PRIMARY = "#f0a563"
 SECONDARY = "#e1d2c5"
 
-class Slide0(Scene):
+class Slide00(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -31,7 +31,7 @@ class Slide0(Scene):
         
         self.add(Tex(r"Harmonische reeks ($p=1$)").scale(2).to_edge(UP))
 
-class Slide1(Scene):
+class Slide01(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=4.0, height=4.0).shift(LEFT * 2.0) # 1
@@ -42,7 +42,7 @@ class Slide1(Scene):
 
         self.add(rect1, rect2, text1, text2, text3)
 
-class Slide2(Scene):
+class Slide02(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         rect1 = Rectangle(width=2.0, height=4.0).shift(LEFT * 2.0) # 1/2
@@ -53,7 +53,7 @@ class Slide2(Scene):
 
         self.add(rect1, rect2, text1, text2, text3)
 
-class Slide3(Scene):
+class Slide03(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -71,7 +71,7 @@ class Slide3(Scene):
         self.add(toprect1, toprect2, toprect3)
         self.add(toptext1, toptext2, toptext3, eq1, eq2)
 
-class Slide4(Scene):
+class Slide04(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -104,7 +104,7 @@ class Slide4(Scene):
         self.add(toprect1, toprect2, toprect3, bottomrect1, bottomrect2, bottomrect3, bottomrect4)
         self.add(toptext1, toptext2, toptext3, bottomtext1, bottomtext2, bottomtext3, geq1, geq2, eq1, eq2, eq3, eq4)
 
-class Slide5(Scene):
+class Slide05(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -131,7 +131,7 @@ class Slide5(Scene):
         self.add(toptext1, toptext2, toptext3, toptext4, toptext5)
         self.add(eq1, eq2, eq3, eq4)
 
-class Slide6(Scene):
+class Slide06(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -187,7 +187,7 @@ class Slide6(Scene):
         self.add(geq1, geq2, geq3, geq4)
         self.add(bottomtext1, bottomtext2, bottomtext3, bottomtext4, bottomtext5)
 
-class Slide7(Scene):
+class Slide07(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -218,7 +218,7 @@ class Slide7(Scene):
         self.add(toptext1, toptext2, toptext4, toptext5)
         self.add(eq1, eq2, eq3, eq4, dotdotdot, brace, bracelabel)
 
-class Slide8(Scene):
+class Slide08(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
@@ -280,7 +280,7 @@ class Slide8(Scene):
         self.add(bottomtext1, bottomtext2, bottomtext4, bottomtext5)
         self.add(dotdotdot1, dotdotdot2, brace, bracelabel)
 
-class Slide9(Scene):
+class Slide09(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
 
