@@ -110,26 +110,24 @@ class Slide05(Scene):
 
         C = 128.0 / 153.0
 
-        toprect1 = Rectangle(width=2.0 * C, height=1.2).shift(UP * 1.1).shift(LEFT * 6.5 * C) # 1/5
-        toprect2 = Rectangle(width=2.0 * C, height=1.0).shift(UP).shift(LEFT * 3.5 * C) # 1/6
-        toprect3 = Rectangle(width=2.0 * C, height=6.0/7.0).shift(UP * 13.0 / 14.0).shift(LEFT * .5 * C) # 1/7
-        toprect4 = Rectangle(width=2.0 * C, height=.75).shift(UP * .875).shift(RIGHT * 2.5 * C) # 1/8
-        toprect5 = Rectangle(width=2.0 * C, height=3.0).shift(UP * 2.0).shift(RIGHT * 6.5 * C) # 1/2
+        for i in range(4):
+            height = 6.0 / (i + 5.0)
+            rect = Rectangle(width=2.0*C, height=height)
+            rect.shift(UP * .5 * (1 + height) + LEFT * C * (6.5 - 3 * i))
+            text = MathTex(r"\frac{1}{" + str(i + 5)+ r"}").move_to(rect.get_center()).scale(height * 2.0 / 3.0)
+            self.add(rect, text)
 
-        toptext1 = MathTex(r"\frac{1}{5}").move_to(toprect1.get_center()).scale(.8)
-        toptext2 = MathTex(r"\frac{1}{6}").move_to(toprect2.get_center()).scale(2.0 / 3.0)
-        toptext3 = MathTex(r"\frac{1}{7}").move_to(toprect3.get_center()).scale(12.0 / 21.0)
-        toptext4 = MathTex(r"\frac{1}{8}").move_to(toprect4.get_center()).scale(.5)
-        toptext5 = MathTex(r"\frac{1}{2}").move_to(toprect5.get_center())
+        rect = Rectangle(width=2.0 * C, height=3.0).shift(UP * 2.0 + RIGHT * 6.5 * C) # 1/2
+        text = MathTex(r"\frac{1}{2}").move_to(rect.get_center())
+        self.add(rect, text)
 
-        eq1 = MathTex(r"+").shift(LEFT * 5 * C).shift(UP * .875)
-        eq2 = MathTex(r"+").shift(LEFT * 2 * C).shift(UP * .875)
-        eq3 = MathTex(r"+").shift(RIGHT * C).shift(UP * .875)
-        eq4 = MathTex(r"\geq").shift(RIGHT * 4.5 * C).shift(UP * .875)
-
-        self.add(toprect1, toprect2, toprect3, toprect4, toprect5)
-        self.add(toptext1, toptext2, toptext3, toptext4, toptext5)
-        self.add(eq1, eq2, eq3, eq4)
+        for i in range(3):
+            plus = MathTex(r"+")
+            plus.shift(LEFT * C * (5 - 3 * i) + UP * .875)
+            self.add(plus)
+        
+        geq = MathTex(r"\geq").shift(RIGHT * 4.5 * C + UP * .875)
+        self.add(geq)
 
 class Slide06(Scene):
     def construct(self):
