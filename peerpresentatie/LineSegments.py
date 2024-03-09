@@ -1,12 +1,17 @@
-# manim -qh LineSegments.py Slide01 Slide02 Slide03
+# manim -qh LineSegments.py Image01 Image02 Image03
 
 from manim import *
 
+config.frame_height = 8
+config.frame_width = 8
+config.frame_size = (1000, 1000)
+
 BACKGROUND = "#ffffff"
 PRIMARY = "#000000"
-SECONDARY = "#ff0000"
+SECONDARY = "#00a6d6"
+TERTIARY = "#e03c31"
 
-
+R = 3.5
 ANGLE1 = .5 * PI
 ANGLE2 = 1.1 * PI
 ANGLE3 = -.2 * PI
@@ -14,10 +19,10 @@ ANGLE4 = -.6 * PI
 ANGLE5 = .3 * PI
 ANGLE6 = .8 * PI
 
-class Slide01(Scene):
+class Image01(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(RIGHT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=PRIMARY),
@@ -33,10 +38,10 @@ class Slide01(Scene):
                 self.add(line)
             self.add(points[i])
 
-class Slide02(Scene):
+class Image02(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=GRAY, stroke_width=2).shift(RIGHT * 2)
+        circle = Circle(radius=R, color=GRAY, stroke_width=2)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=SECONDARY, radius=.1),
@@ -57,10 +62,10 @@ class Slide02(Scene):
         line = Line(points[0], points[3], color=SECONDARY, stroke_width=8)
         self.add(line)
         
-class Slide03(Scene):
+class Image03(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=GRAY, stroke_width=2).shift(RIGHT * 2)
+        circle = Circle(radius=R, color=GRAY, stroke_width=2)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=GRAY, radius=.05),
@@ -80,10 +85,8 @@ class Slide03(Scene):
             self.add(points[i])
         line = Line(points[2], points[5], color=SECONDARY, stroke_width=8)
         self.add(line)
-        text = MathTex(r"\text{Kies }2\text{ van de }n\\\text{ punten: }{n\choose 2}", color=PRIMARY).shift(LEFT * 3.5)
-        self.add(text)
 
-class Slide04(Scene):
+class Image04(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
         

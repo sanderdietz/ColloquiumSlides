@@ -1,11 +1,17 @@
-# manim -qh Intro.py Slide01 Slide02 Slide03 Slide04 Slide05 Slide06
+# manim -qh Intro.py Image01 Image02 Image03 Image04 Image05 Image06
 
 from manim import *
 
+config.frame_height = 8
+config.frame_width = 8
+config.frame_size = (1000, 1000)
+
 BACKGROUND = "#ffffff"
 PRIMARY = "#000000"
-SECONDARY = "#f0a563"
+SECONDARY = "#00a6d6"
+TERTIARY = "#e03c31"
 
+R = 3.5
 ANGLE1 = .5 * PI
 ANGLE2 = 1.1 * PI
 ANGLE3 = -.2 * PI
@@ -13,17 +19,16 @@ ANGLE4 = -.6 * PI
 ANGLE5 = .3 * PI
 ANGLE6 = .8 * PI
 
-class Slide01(Scene):
+class Image01(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(LEFT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
-        self.add(MathTex(r"1", color=PRIMARY).scale(2).shift(RIGHT * 3.5))
 
-class Slide02(Scene):
+class Image02(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(LEFT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=PRIMARY),
@@ -34,12 +39,11 @@ class Slide02(Scene):
                 line = Line(points[i], points[j], color=PRIMARY)
                 self.add(line)
             self.add(points[i])
-        self.add(MathTex(r"2", color=PRIMARY).scale(2).shift(RIGHT * 3.5))
 
-class Slide03(Scene):
+class Image03(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(LEFT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=PRIMARY),
@@ -51,12 +55,11 @@ class Slide03(Scene):
                 line = Line(points[i], points[j], color=PRIMARY)
                 self.add(line)
             self.add(points[i])
-        self.add(MathTex(r"4", color=PRIMARY).scale(2).shift(RIGHT * 3.5))
 
-class Slide04(Scene):
+class Image04(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(LEFT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=PRIMARY),
@@ -69,12 +72,11 @@ class Slide04(Scene):
                 line = Line(points[i], points[j], color=PRIMARY)
                 self.add(line)
             self.add(points[i])
-        self.add(MathTex(r"8", color=PRIMARY).scale(2).shift(RIGHT * 3.5))
 
-class Slide05(Scene):
+class Image05(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(LEFT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=PRIMARY),
@@ -88,12 +90,11 @@ class Slide05(Scene):
                 line = Line(points[i], points[j], color=PRIMARY)
                 self.add(line)
             self.add(points[i])
-        self.add(MathTex(r"16", color=PRIMARY).scale(2).shift(RIGHT * 3.5))
         
-class Slide06(Scene):
+class Image06(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
-        circle = Circle(radius=3.0, color=PRIMARY).shift(LEFT * 2)
+        circle = Circle(radius=R, color=PRIMARY)
         self.add(circle)
         points = [
             Dot(circle.point_at_angle(ANGLE1), color=PRIMARY),
@@ -108,4 +109,3 @@ class Slide06(Scene):
                 line = Line(points[i], points[j], color=PRIMARY)
                 self.add(line)
             self.add(points[i])
-        self.add(MathTex(r"31", color=PRIMARY).scale(2).shift(RIGHT * 3.5))
