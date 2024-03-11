@@ -19,6 +19,25 @@ ANGLE4 = -.6 * PI
 ANGLE5 = .3 * PI
 ANGLE6 = .8 * PI
 
+class Image00(Scene):
+    def construct(self):
+        self.camera.background_color = SECONDARY
+        circle = Circle(radius=R, color=WHITE)
+        self.add(circle)
+        points = [
+            Dot(circle.point_at_angle(ANGLE1), color=WHITE),
+            Dot(circle.point_at_angle(ANGLE2), color=WHITE),
+            Dot(circle.point_at_angle(ANGLE3), color=WHITE),
+            Dot(circle.point_at_angle(ANGLE4), color=WHITE),
+            Dot(circle.point_at_angle(ANGLE5), color=WHITE),
+            Dot(circle.point_at_angle(ANGLE6), color=WHITE)
+        ]
+        for i in range(len(points)):
+            for j in range(i, len(points)):
+                line = Line(points[i], points[j], color=PRIMARY)
+                self.add(line)
+            self.add(points[i])
+
 class Image01(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND

@@ -1,6 +1,7 @@
 # manim -qh Assumptions.py Image01 Image02 Image03 Image04 Image05 Image06
 
 from manim import *
+import helper
 
 config.frame_height = 8
 config.frame_width = 8
@@ -18,20 +19,6 @@ ANGLE3 = -.2 * PI
 ANGLE4 = -.6 * PI
 ANGLE5 = .3 * PI
 ANGLE6 = .8 * PI
-
-def linear(angle1, angle2):
-    y1 = R * np.sin(angle1)
-    y2 = R * np.sin(angle2)
-    x1 = R * np.cos(angle1)
-    x2 = R * np.cos(angle2)
-    a = (y1 - y2) / (x1 - x2)
-    b = y1 - a * x1
-    return (a, b)
-
-def intersection(a1, b1, a2, b2):
-    x = (b2 - b1) / (a1 - a2)
-    y = a1 * x + b1
-    return (x, y, 0)
 
 class Image01(Scene):
     def construct(self):
@@ -54,9 +41,9 @@ class Image01(Scene):
 
 class Image02(Scene):
     def construct(self):
-        a1, b1 = linear(ANGLE1, ANGLE4)
-        a2, b2 = linear(ANGLE3, ANGLE6)
-        intersection_point = intersection(a1, b1, a2, b2)
+        a1, b1 = helper.linear_angles(R, ANGLE1, ANGLE4)
+        a2, b2 = helper.linear_angles(R, ANGLE3, ANGLE6)
+        intersection_point = helper.intersection(a1, b1, a2, b2)
         a = (intersection_point[1] - R * np.sin(ANGLE2)) / (intersection_point[0] - R * np.cos(ANGLE2))
         b = intersection_point[1] - a * intersection_point[0]
         x = (-a * b + np.sqrt(a * a * b * b - (a * a + 1) * (b * b - R * R))) / (a * a + 1)
