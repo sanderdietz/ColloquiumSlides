@@ -1,6 +1,10 @@
 from manim import *
 
-class Slide1(ThreeDScene):
+PRIMARY = "#00a6d6"
+SECONDARY = "#e03c31"
+TERTIARY = "#0c2340"
+
+class Image01(ThreeDScene):
     def function(self, u, v):
         W = 1
         w = .66
@@ -11,21 +15,27 @@ class Slide1(ThreeDScene):
                          w * u * (1 - v) + W * (1 - u) * v])
 
     def construct(self):
-        axes = ThreeDAxes(x_range=[0, 1], y_range=[0, 1], z_range=[0, 1])
+        self.camera.background_color = WHITE
+
+        axes = ThreeDAxes(
+            x_range=[0, 1, .2],
+            y_range=[0, 1, .2],
+            z_range=[0, 1, .2],
+            axis_config={
+                "include_numbers": True,
+                "include_tip": False
+            })
+        axes.color = BLACK
         surface = Surface(
             lambda u, v: axes.c2p(*self.function(u, v)),
             u_range=[0, 1],
             v_range=[0, 1],
-            resolution=10
+            resolution=10,
+            checkerboard_colors=[PRIMARY, TERTIARY]
         )
         labels = axes.get_axis_labels(
-            Text("x"), Text("y"), Text("z")
+            MathTex(r"x"), MathTex(r"y"), MathTex(r"\mathbb{R}")
         )
         self.add(axes, surface, labels)
-        # THETA 0 .25 * PI
-        self.set_camera_orientation(phi=.25 * PI, theta=.25 * PI, zoom=.5)
-        self.move_camera(phi=.5 * PI, theta=.25 * PI, zoom=.5)
-        self.move_camera(phi=.5 * PI, theta=-.25 * PI, zoom=.5)
-        # self.wait(.5)
-        # self.begin_ambient_camera_rotation(rate=0.25)
-        # self.wait(10)
+        self.add(Line3D(start=axes.coords_to_point(.6, 0, .4), end=axes.coords_to_point(.6, 1, .4), color=SECONDARY, stroke_width=6))
+        self.set_camera_orientation(phi=.35 * PI, theta=.1 * PI, zoom=.5)
