@@ -55,7 +55,7 @@ class Image06(UnitInterval):
     def construct(self):
         self.setup()
         arc = Arc(radius=np.sqrt(2), angle=1.5*PI, stroke_width=10, stroke_color=BLACK).shift(UL * np.sqrt(2))
-        line1 = Line((0, np.sqrt(2), 0), (0, -TWOSQRTTWO, 0), stroke_width=10, stroke_color=BLACK)
+        line1 = Line((0, np.sqrt(2), 0), ORIGIN, stroke_width=10, stroke_color=BLACK)
         line2 = Line((-np.sqrt(2), 0, 0), (TWOSQRTTWO, 0, 0), stroke_width=10, stroke_color=BLACK)        
         self.add(line1, line2, arc, self.get_end(line1), self.get_end(line2))
 

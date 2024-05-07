@@ -19,4 +19,4 @@ class Image04(ThreeDScene):
     def construct(self):
         self.camera.background_color = WHITE
         self.add(ThreeDAxes(tips=False).set_color(BLACK))
-        self.set_camera_orientation(phi=.4 * PI, theta=.25 * PI)
+        self.set_camera_orientation(phi=.4 * PI, theta=.25 * PI, (0, 0, 0))
