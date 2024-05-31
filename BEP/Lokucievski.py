@@ -61,3 +61,86 @@ class Image03(Scene):
         self.add(MathTex("L", color=BLACK).shift((-3, 2.25, 0)))
         self.add(MathTex("L", color=BLACK).shift((3, 2.25, 0)))
 
+class Image04(Scene):
+    def __init__(self):
+        Scene.__init__(self)
+        self.endpoints = set()
+
+    def cantor(self, start, width):
+        if width > .025:
+            self.endpoints.add(start)
+            self.endpoints.add(start + width)
+            self.cantor(start, width / 3)
+            self.cantor(start + width * 2 / 3, width / 3)
+
+    def ternary(self, x):
+        ternary = ""
+        while x != 0 and len(ternary) <= 6:
+            x *= 3
+            digit = int(x)
+            ternary += str(digit)
+            x -= digit
+        return ternary
+
+    def binary(self, ternary):
+        binary = 0
+        for i in range(len(ternary)):
+            binary += .5 ** (i + 1) * int(ternary[i]) / 2
+        return binary
+
+    def inCantor(self, x):
+        pass
+
+    def construct(self):
+        self.camera.background_color = WHITE
+        # self.cantor(-2, 4)
+        # self.endpoints = sorted(list(self.endpoints))
+
+        # for i in range(len(self.endpoints) // 2):
+        #     self.add(Line((-1, self.endpoints[i * 2], 0), (-1, self.endpoints[i * 2 + 1], 0), color=BLACK))
+
+        # self.add(Line((1, -2, 0), (1, 2, 0), color=BLACK))
+
+        counter = 0
+        for i in range(10000):
+            x = .0001 * i
+            ternary = self.ternary(x)
+            # if "1" in ternary:
+            #     print(x, ternary)
+            #     if ternary.count("1") == 1 and ternary[-1] != "1":
+            #         index = ternary.index("1")
+            #         for j in range(index + 1, len(ternary)):
+            #             if ternary[j] == "0":
+            #                 break
+            #         else:
+            #             ternary = ternary[:index] + "2"
+
+            if not "1" in ternary:
+                y = -2 + 4 * x
+                left_point = (-6, y, 0)
+                start_point = (-1, y, 0)
+                start_handle = (-.5, y, 0)
+                end_point = (0, -2 + 4 * self.binary(ternary), 0)
+                self.add(Line(left_point, start_point, color=BLACK, stroke_width=1))
+                self.add(CubicBezier(start_point, start_handle, end_point, end_point, color=BLACK, stroke_width=1))
+
+                right_part = VGroup(
+                    Line((6, y, 0), (1, y, 0), color=BLACK, stroke_width=1),
+                    CubicBezier((1, y, 0), (.5, y, 0), end_point, end_point, color=BLACK, stroke_width=1)
+                )
+                self.add(right_part.shift(UR * .25))
+
+        self.add(Line((-6, 2, 0), (6, 2, 0), color=BLACK, stroke_width=1))
+        self.add(Line((0, -2, 0), (0, 2, 0), color=BLACK))
+
+        self.add(MathTex("0", color=BLACK).shift((-6, -2.25, 0)))
+        self.add(MathTex("0", color=BLACK).shift((6, -2.25, 0)))
+        self.add(MathTex("\omega_1", color=BLACK).shift((0, -2.25, 0)))
+        self.add(MathTex("C", color=BLACK).shift((-6.25, 0, 0)))
+        self.add(MathTex("C", color=BLACK).shift((6.25, 0, 0)))
+        self.add(MathTex("L", color=BLACK).shift((-3, 2.25, 0)))
+        self.add(MathTex("L", color=BLACK).shift((3, 2.25, 0)))
+        
+        print(self.ternary(2/9))
+        print(self.ternary(.2222))
+        print(1/8+1/16+1/32+1/64+1/128)
