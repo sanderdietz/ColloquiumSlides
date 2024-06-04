@@ -118,20 +118,24 @@ class Image04(Scene):
             if not "1" in ternary:
                 y = -2 + 4 * x
                 left_point = (-6, y, 0)
-                start_point = (-1, y, 0)
-                start_handle = (-.5, y, 0)
-                end_point = (0, -2 + 4 * self.binary(ternary), 0)
+                start_point = (-1.25, y, 0)
+                start_handle = (-.75, y, 0)
+                end_point = (-.25, -2 + 4 * self.binary(ternary), 0)
+                end_point_alt = (.25, -2 + 4 * self.binary(ternary), 0)
                 self.add(Line(left_point, start_point, color=BLACK, stroke_width=1))
                 self.add(CubicBezier(start_point, start_handle, end_point, end_point, color=BLACK, stroke_width=1))
 
                 right_part = VGroup(
-                    Line((6, y, 0), (1, y, 0), color=BLACK, stroke_width=1),
-                    CubicBezier((1, y, 0), (.5, y, 0), end_point, end_point, color=BLACK, stroke_width=1)
+                    Line((6, y, 0), (1.25, y, 0), color=BLACK, stroke_width=1),
+                    CubicBezier((1.25, y, 0), (.75, y, 0), end_point_alt, end_point_alt, color=BLACK, stroke_width=1)
                 )
-                self.add(right_part.shift(UR * .25))
+                self.add(right_part)
 
-        self.add(Line((-6, 2, 0), (6, 2, 0), color=BLACK, stroke_width=1))
-        self.add(Line((0, -2, 0), (0, 2, 0), color=BLACK))
+                self.add(Line(end_point, (.25, -2 + 4 * ((self.binary(ternary) + PI) % 1), 0), color=BLACK, stroke_width=1))
+
+        # self.add(Line((-6, 2, 0), (-.25, 2, 0), color=BLACK, stroke_width=1))
+        # self.add(Line((6, 2, 0), (.25, 2, 0), color=BLACK, stroke_width=1))
+        # self.add(Line((0, -2, 0), (0, 2, 0), color=BLACK))
 
         self.add(MathTex("0", color=BLACK).shift((-6, -2.25, 0)))
         self.add(MathTex("0", color=BLACK).shift((6, -2.25, 0)))
