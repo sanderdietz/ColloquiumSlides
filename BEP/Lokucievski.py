@@ -1,5 +1,6 @@
 from manim import *
 from Helper import *
+import random
 
 class Image01(Scene):
     def cantor(self, x, y, width):
@@ -101,7 +102,9 @@ class Image04(Scene):
 
         # self.add(Line((1, -2, 0), (1, 2, 0), color=BLACK))
 
-        counter = 0
+        STROKE_WIDTH = 8
+        index = 0
+
         for i in range(10000):
             x = .0001 * i
             ternary = self.ternary(x)
@@ -122,20 +125,56 @@ class Image04(Scene):
                 start_handle = (-.75, y, 0)
                 end_point = (-.25, -2 + 4 * self.binary(ternary), 0)
                 end_point_alt = (.25, -2 + 4 * self.binary(ternary), 0)
+
+                eps = .01
+                if abs(end_point[1] + 0.8782671535351252) < eps:
+                    # self.add(Dot(end_point_alt, color=RED))
+                    index = i
+
                 self.add(Line(left_point, start_point, color=BLACK, stroke_width=1))
                 self.add(CubicBezier(start_point, start_handle, end_point, end_point, color=BLACK, stroke_width=1))
+                self.add(Line((6, y, 0), (1.25, y, 0), color=BLACK, stroke_width=1))
+                self.add(CubicBezier((1.25, y, 0), (.75, y, 0), end_point_alt, end_point_alt, color=BLACK, stroke_width=1))
 
-                right_part = VGroup(
-                    Line((6, y, 0), (1.25, y, 0), color=BLACK, stroke_width=1),
-                    CubicBezier((1.25, y, 0), (.75, y, 0), end_point_alt, end_point_alt, color=BLACK, stroke_width=1)
-                )
-                self.add(right_part)
+        random_point = 0
+        random.seed(4)
+        for i in range(100):
+            left_point = (-.25, -2 + .04 * i, 0)
+            right_point = (.25, -2 + 4 * random.random(), 0)
+            if i == 50:
+                random_point = right_point
+            self.add(Line(left_point, right_point, color=BLACK, stroke_width=1))
 
-                self.add(Line(end_point, (.25, -2 + 4 * ((self.binary(ternary) + PI) % 1), 0), color=BLACK, stroke_width=1))
+        self.add(Line((-.25, -2 + .04 * 50, 0), random_point, color=PRIMARY, stroke_width=STROKE_WIDTH))
+        print(random_point[1])
 
-        # self.add(Line((-6, 2, 0), (-.25, 2, 0), color=BLACK, stroke_width=1))
-        # self.add(Line((6, 2, 0), (.25, 2, 0), color=BLACK, stroke_width=1))
-        # self.add(Line((0, -2, 0), (0, 2, 0), color=BLACK))
+        x = .0001 * index
+        ternary = self.ternary(x)
+        y = -2 + 4 * x
+        end_point_alt = (.25, -2 + 4 * self.binary(ternary), 0)
+        self.add(Line((2, y, 0), (1.25, y, 0), color=PRIMARY, stroke_width=STROKE_WIDTH))
+        self.add(CubicBezier((1.25, y, 0), (.75, y, 0), end_point_alt, end_point_alt, color=PRIMARY, stroke_width=STROKE_WIDTH))
+
+
+        x = .3333
+        ternary = self.ternary(x)
+        y = -2 + 4 * x
+        left_point = (-2.5, y, 0)
+        start_point = (-1.25, y, 0)
+        start_handle = (-.75, y, 0)
+        end_point = (-.25, -2 + 4 * self.binary(ternary), 0)
+        self.add(Line(left_point, start_point, color=PRIMARY, stroke_width=STROKE_WIDTH))
+        self.add(CubicBezier(start_point, start_handle, end_point, end_point, color=PRIMARY, stroke_width=STROKE_WIDTH))
+
+        x = .6667
+        ternary = self.ternary(x)
+        y = -2 + 4 * x
+        left_point = (-1.75, y, 0)
+        start_point = (-1.25, y, 0)
+        start_handle = (-.75, y, 0)
+        end_point = (-.25, -2 + 4 * self.binary(ternary), 0)
+        self.add(Line(left_point, start_point, color=PRIMARY, stroke_width=STROKE_WIDTH))
+        self.add(CubicBezier(start_point, start_handle, end_point, end_point, color=PRIMARY, stroke_width=STROKE_WIDTH))
 
         self.add(MathTex("0", color=BLACK).shift((-6, -2.25, 0)))
         self.add(MathTex("0", color=BLACK).shift((6, -2.25, 0)))
@@ -144,7 +183,3 @@ class Image04(Scene):
         self.add(MathTex("C", color=BLACK).shift((6.25, 0, 0)))
         self.add(MathTex("L", color=BLACK).shift((-3, 2.25, 0)))
         self.add(MathTex("L", color=BLACK).shift((3, 2.25, 0)))
-        
-        print(self.ternary(2/9))
-        print(self.ternary(.2222))
-        print(1/8+1/16+1/32+1/64+1/128)
