@@ -89,9 +89,6 @@ class Image04(Scene):
             binary += .5 ** (i + 1) * int(ternary[i]) / 2
         return binary
 
-    def inCantor(self, x):
-        pass
-
     def construct(self):
         self.camera.background_color = WHITE
         # self.cantor(-2, 4)
@@ -152,7 +149,7 @@ class Image04(Scene):
         ternary = self.ternary(x)
         y = -2 + 4 * x
         end_point_alt = (.25, -2 + 4 * self.binary(ternary), 0)
-        self.add(Line((2, y, 0), (1.25, y, 0), color=PRIMARY, stroke_width=STROKE_WIDTH))
+        self.add(Line((2.5, y, 0), (1.25, y, 0), color=PRIMARY, stroke_width=STROKE_WIDTH))
         self.add(CubicBezier((1.25, y, 0), (.75, y, 0), end_point_alt, end_point_alt, color=PRIMARY, stroke_width=STROKE_WIDTH))
 
 
@@ -169,7 +166,7 @@ class Image04(Scene):
         x = .6667
         ternary = self.ternary(x)
         y = -2 + 4 * x
-        left_point = (-1.75, y, 0)
+        left_point = (-2.5, y, 0)
         start_point = (-1.25, y, 0)
         start_handle = (-.75, y, 0)
         end_point = (-.25, -2 + 4 * self.binary(ternary), 0)
@@ -178,7 +175,9 @@ class Image04(Scene):
 
         self.add(MathTex("0", color=BLACK).shift((-6, -2.25, 0)))
         self.add(MathTex("0", color=BLACK).shift((6, -2.25, 0)))
-        self.add(MathTex("\omega_1", color=BLACK).shift((0, -2.25, 0)))
+        self.add(MathTex("\omega_1", color=BLACK).shift((-.35, -2.25, 0)))
+        self.add(MathTex("\omega_1", color=BLACK).shift((.35, -2.25, 0)))
+        self.add(MathTex("J", color=BLACK).shift((0, 2.25, 0)))
         self.add(MathTex("C", color=BLACK).shift((-6.25, 0, 0)))
         self.add(MathTex("C", color=BLACK).shift((6.25, 0, 0)))
         self.add(MathTex("L", color=BLACK).shift((-3, 2.25, 0)))
